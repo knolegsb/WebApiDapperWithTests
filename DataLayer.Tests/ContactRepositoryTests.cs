@@ -14,7 +14,7 @@ namespace DataLayer.Tests
             IContactRepository _repository = CreateRepository();
 
             // Act
-            var contact = _repository.Find(id);
+            //var contact = _repository.Find(id);
         }
 
         private IContactRepository CreateRepository()

@@ -35,9 +35,9 @@ namespace DataLayer.Dapper
 
         public Contact GetFullContact(int id)
         {
-            //var sql = "SELECT * FROM Contacts WHERE Id = @Id; " + "SELECT * FROM Addresses WHERE ContactId = @Id";
-            //using (var mulipleResults = this.db.QueryMultiple(sql, new { Id = id }))
-            using (var multipleResults = db.QueryMultiple("GetContact", new { Id = id }, commandType: CommandType.StoredProcedure))
+            var sql = "SELECT * FROM Contacts WHERE Id = @Id; " + "SELECT * FROM Addresses WHERE ContactId = @Id";
+            using (var multipleResults = this.db.QueryMultiple(sql, new { Id = id }))
+            //using (var multipleResults = db.QueryMultiple("GetContact", new { Id = id }, commandType: CommandType.StoredProcedure))
             {
                 var contact = multipleResults.Read<Contact>().SingleOrDefault();
 
